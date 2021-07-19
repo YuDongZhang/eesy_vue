@@ -38,11 +38,12 @@
       <param-name>encoding</param-name>
       <param-value>UTF-8</param-value>
     </init-param>
-    <!-- 启动过滤器 -->
+    <!-- 启动过滤器 https://blog.csdn.net/boywcx/article/details/100770171 按这个地址对于tomcat
+    进行修改
     <init-param>
       <param-name>forceEncoding</param-name>
       <param-value>true</param-value>
-    </init-param>
+    </init-param>-->
   </filter>
   <!-- 过滤所有请求 -->
   <filter-mapping>
