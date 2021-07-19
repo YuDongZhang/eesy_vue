@@ -7,11 +7,31 @@
 	</head>
 	<body>
 		<div id="app">
-			
+			{{message}}<!--vue 插值表达式 , 把data中定义的数据显示到此处 -->
+
+		<!--这些表达式会在所属 Vue 实例的数据作用域下作为 JavaScript 被解析。有个限制就是，每个绑定都只能包含单个
+		表达式，所以下面的例子都不会生效。-->
+			<!-- 这是语句，不是表达式 -->
+ 			<!--{{ var a = 1 }}-->
+			<!-- 流控制也不会生效，请使用三元表达式 -->
+			<!--{{ if (ok) { return message } }}-->
+			<br/>
+			{{false ? "ok":"no"}}
+			<!--数学运算-->
+			<br/>
+			{{number*0.52}}
 		</div>
 	</body>
 	<script>
 		//view model
+		//创建 vue 对象
+		new Vue({
+			el:"#app",//由vue接管id为app的区域
+			data:{
+				message:"hello vue! eesy",//注意 : 此处不要加分号
+				number:100
+			}
+		})
 		
 	</script>
 </html>
