@@ -16,12 +16,41 @@
 					<td>名称</td>
 					<td>价格</td>
 				</tr>
+
+				<tr v-for="(product,index) in products">
+					<td>{{index+1}}</td>
+					<td>{{product.id}}</td>
+					<td>{{product.name}}</td>
+					<td>{{product.price}}</td>
+				</tr>
 				
 			</table>
 		</div>
 	</body>
 	<script>
 		//view model
+		new Vue({
+			el:"#app",
+			data:{
+				products:[
+					{
+						id:1,
+						name:"笔记本",
+						price:5000
+					},
+					{
+						id:2,
+						name:"小米",
+						price:5100
+					},
+					{
+						id:4,
+						name:"联想",
+						price:5200
+					}
+				]
+			}
+		})
 		
 	</script>
 
