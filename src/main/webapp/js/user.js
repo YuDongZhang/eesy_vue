@@ -18,7 +18,15 @@ new Vue({
                 })
         },
         findById: function (userid) {
-
+            var _this = this;//this 是指当前对象 , 如果下面直接用 , 就是 axios 的this
+            axios.get('/eesy_vue/user/findById.do',{params:{id:userid}})
+                .then(function (response) {
+                    _this.user = response.data;//响应数据给 userlist 赋值
+                    $("#myModal").modal("show");
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
         },
         update: function (user) {
 
