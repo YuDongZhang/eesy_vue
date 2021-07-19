@@ -8,7 +8,7 @@
 	<body>
 		<div id="app">
 			{{message}}  
-			<button v-on:click="fun1">vue的onclick</button>
+			<button v-on:click="fun1('哈哈')">vue的onclick</button>
 		</div>
 	</body>
 	<script>
@@ -19,8 +19,10 @@
 				message:"hello vue!"
 			},
 			methods:{
-				fun1:function () {
+				fun1:function (msg) {
 					alert("hello");
+					this.message = msg;
+
 				}
 			}
 		});
