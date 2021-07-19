@@ -46,8 +46,8 @@ public class UserController {
      * 更新
      * @param user
      */
-    @RequestMapping("/updateUser")
-    public void updateUser(@RequestBody User user){
+    @RequestMapping("/updateUser") //这地方添加 RequestBody 返回 json形式的user
+    public void updateUser( @RequestBody User user){
         System.out.println(user);
         userService.updateUser(user);
     }

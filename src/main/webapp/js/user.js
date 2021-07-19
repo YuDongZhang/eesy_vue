@@ -29,7 +29,11 @@ new Vue({
                 })
         },
         update: function (user) {
-
+            var _this = this;                        //这里的user是一个json,上面的json所以在controller中要改变,窗口中使用了 v-model
+            axios.post("/eesy_vue/user/updateUser.do",_this.user).then(function (response) {
+                _this.findAll();
+            }).catch(function (err) {
+            });
         }
     },
     created() {//在这个生命周期内要查询//刷新//当页面加载的时候
