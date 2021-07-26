@@ -8,8 +8,9 @@
 <body>
 <div id="app">
     <!--使用定义好的全局组件-->
-    <counter></counter>
-    <counter></counter>
+    <!-- num1前面有 : 就是动态属性,后面引号的就是js,不然就是字符串   -->
+    <counter :num1="num"></counter>
+<!--    <counter></counter>-->
 </div>
 
 </body>
@@ -18,17 +19,16 @@
     // 定义全局组件，两个参数：1，组件名称。2，组件参数
     //和vue产生关联
     Vue.component("counter",{
-        template:'<button v-on:click="count++">你点了我 {{ count }} 次，我记住了.</button>',
-        data(){
-            return {
-                count:0
-            }
-        }
+        template:'<button v-on:click="num1++">你点了我 {{ num1 }} 次，我记住了.</button>',
+        props:["num1"]
     })
 
     //父组件
     var app = new Vue({
-        el:"#app"
+        el:"#app",
+        data:{
+            num:0
+        }
     })
 </script>
 </html>
