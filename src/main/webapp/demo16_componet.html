@@ -20,7 +20,12 @@
     //和vue产生关联
     Vue.component("counter",{
         template:'<button v-on:click="num1++">你点了我 {{ num1 }} 次，我记住了.</button>',
-        props:["num1"]
+        props:{//添加约束
+            num1:{
+                type:Number,
+                default:0
+            }
+        }
     })
 
     //父组件
