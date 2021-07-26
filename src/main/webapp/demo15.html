@@ -7,6 +7,8 @@
 </head>
 <body>
 <dev id="app">
+    <input type="text" v-model="message">
+    <hr/>
     <h1>您的生日是：{{birth}} </h1>
 </dev>
 
@@ -16,7 +18,13 @@
     new Vue({
         el: "#app",
         data: {
-            birthday: 1529032123201 // 毫秒值
+            birthday: 1529032123201, // 毫秒值
+            message: ""
+        },
+        watch: {
+            message(newVal, oldVal) {
+                console.log(newVal, oldVal);
+            }
         },
         computed: {
             birth() {// 计算属性本质是一个方法，但是必须返回结果
