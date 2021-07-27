@@ -9,8 +9,8 @@
 
 
 <div id="app">
-    <span>登录</span>
-    <span>注册</span>
+    <span><router-link to="/login">登录</router-link></span>
+    <span><router-link to="/register">注册</router-link></span>
     <hr/>
     <div>
         <!--<loginForm></loginForm>-->
@@ -19,22 +19,37 @@
             由于html是大小写不敏感的，如果采用上面的写法，则被认为是<loginform></loginform>
             所以，如果是驼峰形式的组件，需要把驼峰转化为“-”的形式
          -->
-        <login-form></login-form>
-        <register-form></register-form>
+        <!--<login-form></login-form>
+        <register-form></register-form>-->
+
+        <!-- 锚点 -->
+        <router-view></router-view>
+
 
     </div>
 
 </div>
 </body>
+<script src="node_modules/vue-router/dist/vue-router.js"></script>
 <script src="js/login.js"></script>
 <script src="js/register.js"></script>
 <script type="text/javascript">
+    const router = new VueRouter({
+        routes:[
+            {
+                path:"/login",
+                component:loginForm
+            },
+            {
+                path:"/register",
+                component:registerForm
+            }
+        ]
+    })
+
     var vm = new Vue({
         el: "#app",
-        components: {
-            loginForm,
-            registerForm
-        }
+        router
     })
 </script>
 </html>
