@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <span>登录</span>
+    <span>注册</span>
+    <hr/>
+    <div>
+        <!--<loginForm></loginForm>-->
+        <!--
+            疑问：为什么不采用上面的写法？
+            由于html是大小写不敏感的，如果采用上面的写法，则被认为是<loginform></loginform>
+            所以，如果是驼峰形式的组件，需要把驼峰转化为“-”的形式
+         -->
+        <login-form></login-form>
+        <register-form></register-form>
+
+    </div>
+
+</div>
+</body>
+<script src="js/login.js"></script>
+<script src="js/register.js"></script>
+<script type="text/javascript">
+    var vm = new Vue({
+        el: "#app",
+        components: {
+            loginForm,
+            registerForm
+        }
+    })
+</script>
+</html>
